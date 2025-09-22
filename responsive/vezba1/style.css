@@ -1,0 +1,41 @@
+*{
+    margin:0;
+    padding:0;
+}
+.container{
+    display: flex;
+    justify-content:space-around;
+    margin-top:100px;
+}
+.container .cards{
+    width:500px;
+    display: flex;
+    flex-direction:column;
+    align-items:center;
+}
+.container .cards img{
+    width:100%;
+}
+.container .cards h1{
+    color:aquamarine;
+    background-color:black;
+    padding:20px 0px;
+    width:100%;
+}
+.container .cards p{
+    font-size:18px;
+}
+.container .cards button{
+    margin-top:30px;
+    padding:10px 30px;
+    font-size:17px;
+    background-color:aquamarine;
+    border-radius:5px;
+    border:none;
+}
+
+@media (max-width:1520px){
+    .container{
+        display: block;
+    }
+}

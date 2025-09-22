@@ -1,0 +1,65 @@
+
+
+*{
+    padding:0;
+    margin:0;
+    font-family:"Roboto",sans-serif;
+}
+.main{
+    width:700px;
+    border:1px solid gray;
+    margin-top:100px;
+    margin-left:50px;
+    padding:50px; 
+}
+h1{
+    text-align:center;
+    margin-bottom:50px;
+}
+.koleno{
+    width:400px;
+    margin-right:50px;
+}
+.profilna{
+    height:266px;
+    width:230px;
+}
+.info{
+    margin-top:30px;
+}
+.quote{
+    margin-top:30px;
+    margin-bottom:30px;
+    border-left:7px solid #6E01B4;
+    padding:15px 10px;
+    font-family:sans-serif;
+    font-style: italic;
+    font-size:18px;
+    background-color:#F0D7FB;
+}
+
+.motogp-naslov th{
+    padding:5px;
+    background-color:#e2f0e8;
+    text-align:center;
+}
+.basic-info tr{
+    text-align:center;
+}
+.basic-info,tr,th,td{
+    border:1px solid black;
+    border-collapse:collapse;
+    margin-bottom:10px;
+}
+.championships{
+    border:1px solid black;
+    border-collapse:collapse;
+    width:320px;
+    text-align:center;
+}
+.basic-info .motogp-naslov td:first-child{
+    display:none;
+}
+.basic-info .motogp-naslov td:last-child{
+    width:100%;
+}

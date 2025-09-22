@@ -1,0 +1,98 @@
+*{
+    padding:0;
+    margin:0;
+}
+.forma{
+    margin:0px auto;
+    width:600px;
+    border:1px solid black;
+    margin-top:100px;
+    padding:20px 20px;
+    box-sizing:border-box;
+    border-radius:10px;
+
+}
+#username{
+    padding:5px;
+    width:100px;
+    margin-top:5px;
+    margin-bottom:5px;
+}
+#password{
+    display: block;
+    padding:5px;
+    width:500px;
+    margin-bottom:10px;
+    margin-top:5px;
+}
+label{
+    font-size:18px;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+.remem{
+    margin-bottom:30px;
+}
+
+input[type="submit"]{
+    margin-bottom:5px;
+    background-color:rgb(36, 159, 36);
+    color:white;
+    padding:10px 0px;
+    width:514px;
+    border:none;
+    font-size:16px;
+}
+#remember{
+    margin-right:5px;
+}
+.cancle{
+    background-color:red;
+    color:white;
+    padding:10px 20px;
+    border:none;
+
+}
+#email{
+    display: block;
+    padding:5px;
+    width:500px;
+    margin-top:5px;
+    margin-bottom:5px;
+}
+#date{
+    display: block;
+    padding:5px;
+    width:500px;
+    margin-top:5px;
+    margin-bottom:5px;
+}
+#pib{
+    width:100px;
+    padding:5px;    
+}
+#city{
+    padding:5px;
+    width:382px;
+
+}
+.grad{
+    margin-top:10px;
+    margin-bottom:10px;
+}
+#submit{
+    margin-bottom:10px;
+    margin-top:10px;
+}
+#age{
+    padding:5px;
+    width:500px;
+    margin-top:5px;
+    margin-bottom:5px;
+}
+#phone{
+    padding:5px;
+    width:500px;
+    margin-top:5px;
+    margin-bottom:5px;
+}
