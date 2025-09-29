@@ -5,7 +5,7 @@
 const numbers = [1, 2, 3, 4, 5];
 
 const squaredNumbers = numbers.map((num)=>{
-    return num * 2;
+    return num * num;
 });
 console.log("1.Niz od kvadriranih brojeva:")
 console.log(squaredNumbers);
