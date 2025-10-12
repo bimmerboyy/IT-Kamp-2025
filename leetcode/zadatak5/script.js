@@ -61,7 +61,7 @@ const longestPalindrome = (stringArray) => {
             let niz = charArray.slice(i, j);
             let reverse = [...niz].reverse();
 
-            if (niz.join("") === reverse.join("") && niz.length > 1) {
+            if (niz.join("") === reverse.join("")) {
                 palindromi.push(niz.join(""));
             }
         }
