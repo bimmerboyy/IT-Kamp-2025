@@ -29,17 +29,28 @@ Izlaz: "A"
 */
 
 
-const convert = () => {
-    let matrix = [[1,2,3],[4,5,6],[7,8,9]];
-
-    for(let i = 0;i < matrix.length;i++){
-        for(let j = 0;j <= matrix[i].length;j++){
-            console.log(matrix[i][j]);
-
+const convert = (s,numRows) => {
+    let matrix = Array.from(Array(4), () => new Array(4));
+    //Prolazimo kroz string slovo po slovo
+    for(let i = 0;i < s.lemgth;i++){
+        for(let idx = 0;idx < numRows-1;idx++){
+            matrix[idx][i] = s[i];
         }
-        console.log("\n");
+        
+       
     }
+
+    console.log(matrix);
 };
 
 
 convert();
+
+
+ // for(let i = 0;i < matrix.length;i++){
+    //     for(let j = 0;j <= matrix[i].length;j++){
+    //         console.log(matrix[i][j]);
+
+    //     }
+    //     console.log("\n");
+    // }
