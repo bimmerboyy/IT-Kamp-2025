@@ -32,19 +32,42 @@ Izlaz: "A"
 const convert = (s,numRows) => {
     let matrix = Array.from(Array(4), () => new Array(4));
     //Prolazimo kroz string slovo po slovo
-    for(let i = 0;i < s.lemgth;i++){
-        for(let idx = 0;idx < numRows-1;idx++){
-            matrix[idx][i] = s[i];
+    let nizSlova = s.split("");
+    let direction = 1;
+    let col = 0,row = 0;
+
+    for(let i = 0;i < nizSlova.length;i++){
+        
+        if(row <= numRows - 1 && direction === 1){
+        matrix[row][col] = nizSlova[i];
+        row += direction;
+        }
+        else{
+            if(row > numRows - 1){
+                row--;
+                col++;
+            }
+            direction = -1;
+            if(row >= 0){
+                matrix[row][col] = nizSlova[i];
+                row += direction; 
+            }
+            else{
+                direction = 1;
+                row = direction;
+                col++;
+            }
+
+            
         }
         
-       
+        
     }
-
-    console.log(matrix);
+ 
 };
 
 
-convert();
+convert("abcd",4);
 
 
  // for(let i = 0;i < matrix.length;i++){
