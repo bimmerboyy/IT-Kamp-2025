@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="naslov">Ovo je naslov</h1>
+    <button id="dugme">Dugme</button>
+
+    <script>
+        const naslov = document.querySelector('#naslov');
+        const dugme = document.querySelector('#dugme');
+
+        dugme.addEventListener('click',() => {
+            naslov.textContent = 'Dugme je kliknuto';
+            naslov.style.color = 'blue';
+            naslov.style.textDecoration = 'underline';
+
+            console.log(event.target.textContent)
+            console.log(event.target.tagName)
+             
+        });
+        
+    </script>
+</body>
+</html>
