@@ -8,10 +8,20 @@
 <body>
     <h1 id="naslov">Ovo je naslov</h1>
     <button id="dugme">Dugme</button>
+    <div class="dugmad" style="display: flex;flex-direction: column;width:200px;justify-content:space-between;height:100px;margin-top:20px; align-items:center;">
+    <button id="crveno" style="padding:5px;width:80px;border:none;border-radius:5px;font-size:15px;">Crveno</button>
+    <button id="zuto" style="padding:5px;width:80px;border:none;border-radius:5px;font-size:15px;">Zuto</button>
+    <button id="zeleno" style="padding:5px;width:80px;border:none;border-radius:5px;font-size:15px;">Zeleno</button>
+    </div>
+    
 
     <script>
         const naslov = document.querySelector('#naslov');
         const dugme = document.querySelector('#dugme');
+
+        const crveno = document.querySelector('#crveno');
+        const zuto = document.querySelector('#zuto');
+        const zeleno = document.querySelector('#zeleno');
 
         dugme.addEventListener('click',() => {
             naslov.textContent = 'Dugme je kliknuto';
@@ -22,6 +32,40 @@
             console.log(event.target.tagName)
              
         });
+
+
+        crveno.addEventListener('click',(event)=>{
+            crveno.style.backgroundColor = 'red';
+
+            event.target.addEventListener('click',()=>{
+                crveno.style.backgroundColor = '#F0F0F0';
+
+            });
+
+            
+        });
+        
+
+        zuto.addEventListener('click',(event)=>{
+            zuto.style.backgroundColor = 'yellow';
+
+            event.target.addEventListener('click',()=>{
+                zuto.style.backgroundColor = '#F0F0F0';
+
+            });
+        });
+        zeleno.addEventListener('click',(event)=>{
+            zeleno.style.backgroundColor = 'green';
+
+            event.target.addEventListener('click',()=>{
+                zeleno.style.backgroundColor = '#F0F0F0';
+
+            });
+        });
+
+
+
+        
         
     </script>
 </body>
