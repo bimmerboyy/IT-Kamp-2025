@@ -94,7 +94,8 @@ const convert = (s, numRows) => {
       } else {
         row++;
       }
-    } else {
+    } 
+    else {
       // If we're at the top, reverse direction
       if (row === 0) {
         goingDown = true;
