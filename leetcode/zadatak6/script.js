@@ -63,7 +63,13 @@ const convert = (s,numRows) => {
         
         
     }
-    return matrix;
+     let result = "";
+    for (let r = 0; r < numRows; r++) {
+    for (let c = 0; c < s.length; c++) {
+      if (matrix[r][c] !== " ") result += matrix[r][c];
+    }
+  }
+  return result;
  
 };
 
@@ -71,6 +77,8 @@ const convert = (s,numRows) => {
 convert("abcdabcdefghi",4);
 
 */
+
+
 
 
 const convert = (s, numRows) => {
