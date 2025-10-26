@@ -63,21 +63,36 @@ const povecaj = document.querySelector('#povecaj');
 const smanji = document.querySelector('#smanji');
 const promeniBoju = document.querySelector('#promeniBoju');
 
+
+
+povecaj.addEventListener('click', () => {
+    let currentSize = parseInt(window.getComputedStyle(glavniNaslov).fontSize);
+    glavniNaslov.style.fontSize = (currentSize + 10) + 'px';
+    
+});
+
+smanji.addEventListener('click', () => {
+    let currentSize = parseInt(window.getComputedStyle(glavniNaslov).fontSize);
+    glavniNaslov.style.fontSize = (currentSize - 10) + 'px';
+    
+});
+
+
 let nizBoja = ['red','blue','green','purple'];
 
-povecaj.addEventListener('click',(event)=>{
-    glavniNaslov.style.fontSize = glavniNaslov.style.fontSize + '5px';
-});
-
-smanji.addEventListener('click',(event)=>{
-    glavniNaslov.style.fontSize = glavniNaslov.style.fontSize -  '5px';
- 
-});
-
-
 promeniBoju.addEventListener('click',(event)=>{
-    
-    
+    let index = Math.floor(Math.random()*nizBoja.length);
+    glavniNaslov.style.color = nizBoja[index];
     
 });
 
+
+
+const klikni = document.querySelector('#klikni');
+const brojac = document.querySelector('#brojac');
+let counter = 0;
+
+klikni.addEventListener('click',(event)=>{
+    counter++;
+    brojac.textContent = `Klikova:${counter}`;
+});
