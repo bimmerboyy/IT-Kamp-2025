@@ -28,9 +28,9 @@ Ulaz: s = "A", brojRedova = 1
 Izlaz: "A"
 */
 
-
+/*
 const convert = (s,numRows) => {
-    let matrix = Array.from(Array(4), () => new Array(4));
+    let matrix = Array.from(Array(numRows), () => new Array(numRows));
     //Prolazimo kroz string slovo po slovo
     let nizSlova = s.split("");
     let direction = 1;
@@ -38,12 +38,12 @@ const convert = (s,numRows) => {
 
     for(let i = 0;i < nizSlova.length;i++){
         
-        if(row <= numRows - 1 && direction === 1){
+        if(row < numRows && direction === 1){
         matrix[row][col] = nizSlova[i];
         row += direction;
         }
         else{
-            if(row > numRows - 1){
+            if(row >= numRows - 1){
                 row--;
                 col++;
             }
@@ -63,17 +63,72 @@ const convert = (s,numRows) => {
         
         
     }
+     let result = "";
+    for (let r = 0; r < numRows; r++) {
+    for (let c = 0; c < s.length; c++) {
+      if (matrix[r][c] !== " ") result += matrix[r][c];
+    }
+  }
+  return result;
  
 };
 
 
-convert("abcd",4);
+convert("abcdabcdefghi",4);
+
+*/
 
 
- // for(let i = 0;i < matrix.length;i++){
-    //     for(let j = 0;j <= matrix[i].length;j++){
-    //         console.log(matrix[i][j]);
 
-    //     }
-    //     console.log("\n");
-    // }
+
+const convert = (s, numRows) => {
+  if (numRows === 1 || s.length <= numRows) return s;
+
+  // Let's assume the max columns = s.length
+  const matrix = Array.from(Array(numRows), () => new Array(s.length).fill(" "));
+
+  let row = 0, col = 0;
+  let goingDown = true;
+
+  for (let i = 0; i < s.length; i++) {
+    matrix[row][col] = s[i];
+
+    if (goingDown) {
+      // If we're at the bottom, reverse direction
+      if (row === numRows - 1) {
+        goingDown = false;
+        row--;
+        col++;
+      } else {
+        row++;
+      }
+    } 
+    else {
+      // If we're at the top, reverse direction
+      if (row === 0) {
+        goingDown = true;
+        row++;
+      } else {
+        row--;
+        col++;
+      }
+    }
+  }
+
+  // Build the final string (read line by line)
+  let result = "";
+  for (let r = 0; r < numRows; r++) {
+    for (let c = 0; c < s.length; c++) {
+      if (matrix[r][c] !== " ") result += matrix[r][c];
+    }
+  }
+
+  return result;
+};
+
+// 🧪 Test cases
+console.log(convert("PAYPALISHIRING", 3)); // PAHNAPLSIIGYIR
+console.log(convert("PAYPALISHIRING", 4)); // PINALSIGYAHRPI
+console.log(convert("A", 1));              // A
+
+
