@@ -30,3 +30,28 @@ div1.appendChild(div2);
 div1.appendChild(div3);
 
 document.body.appendChild(div1);
+
+let brojac = 0;
+const dodaj = document.querySelector('#dodaj');
+
+const izbrisi = document.querySelector('#izbrisi');
+let tekst;
+let niz = [];
+
+dodaj.addEventListener('click',() =>{
+    tekst = document.createElement('p');
+    niz.push(tekst);
+    brojac++;
+    
+    tekst.textContent = `Ovo je tekst po redu broj ${brojac}`;
+    document.body.appendChild(tekst);
+});
+
+
+izbrisi.addEventListener('click',() =>{
+    niz.pop().remove();
+    tekst = null;
+});
+
+
+
