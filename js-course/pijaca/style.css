@@ -1,0 +1,137 @@
+*{
+    padding: 0;
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background-image:url('bg.jpg');
+    display: flex;
+    flex-direction:column;
+    align-items:center;
+}
+.pijaca{
+    text-align:center;
+    margin-top:100px;
+}
+
+.main-div{
+    width:960px;
+    border:2px solid rgb(150, 0, 0);
+    background: rgba(237, 237, 237, 0.4);
+    display: flex;
+    margin-top:20px;
+    border-radius:30px;
+}
+.povrce{
+    width:600px;
+    border-right:2px solid rgb(150, 0, 0);
+}
+
+.povrce img{
+    width:200px;
+    height:150px;
+}
+.povrce h1{
+    text-align:start;
+    font-size:30px;
+    margin:20px 20px;
+}
+
+.artikal{
+    display: flex;
+    border-bottom:1px solid gray;
+    width:500px;
+}
+.dodaj{
+    display: block;
+}
+
+.centriranje{
+    display: flex;
+    justify-content:center;
+
+}
+.naziv{
+    display: flex;
+    flex-direction:column;
+    justify-content:space-between;
+    height:60px;
+    margin-top:20px;
+}
+.naziv p{
+    font-size: 18px;
+}
+
+.dodavanje{
+    display: flex;
+    flex-direction:column;
+    width:50px;
+    margin-left:100px;
+    justify-content:space-between;
+    height:70px;
+    
+}
+
+.dodavanje input{
+    height:27px;
+    padding-left:20px;
+}
+
+.dodavanje .dodaj{
+    padding:3px 5px;
+    width:50px;
+    text-align:center;
+}
+
+.centriranje2{
+    display: flex;
+    justify-content:center;
+    margin-top:20px;
+
+}
+
+.centriranje3 .artikal{
+    display: flex;
+    justify-content:center;
+    margin-top:20px;
+    border:none;
+
+}
+
+.centriranje3 .artikal img{
+    margin-right:20px;
+    margin-bottom:20px;
+}
+
+.korpa h1{
+    font-size: 30px;
+
+}
+.korpa{
+    padding:30px 20px;
+}
+.korpa img{
+    width:170px;
+    height:170px;
+    margin-top:50px;
+    margin-left:50px;
+}
+
+.korpa .ukloni{
+    display: flex;
+    justify-content:space-between;
+    align-items:center;
+    width:300px;
+    margin-top:20px;
+}
+.korpa .ukloni button{
+    padding:5px;
+}
+
+
+.total{
+    margin-top:200px;
+    font-size:25px;
+}
+

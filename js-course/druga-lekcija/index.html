@@ -7,6 +7,11 @@
     <title>Document</title>
 </head>
 <body>
+    <style>
+        a{
+            display: block;
+        }
+    </style>
     <h1>Hello world</h1>
 
     <button class="zuta-boja" onclick="pokreniMe(this)">Zuto dugme</button>
@@ -35,6 +40,27 @@
             </span>
         </div>
     </div>
-    <button onclick="testing()">Klikni</button>
+
+    <div class="glavni-div">
+        <a href="#" class="prvi-link">Prvi link</a>
+        <a href="#" class="drugi-link">Drugi link</a>
+        <a href="#" class="treci-link">Treci link</a>
+    </div>
+
+    <div class="glavni-div dodaj">
+        <div class="inner-div">
+            <div class="double-inner">
+                <a href="" data-test="testing" class="neki-link"></a>
+            </div>
+        </div>
+    </div>
+
+    <input type="text" id="email">
+
+    <br><br>
+    <button onclick="validacija()">Validiraj</button>
+
+
+    
 </body>
 </html>
