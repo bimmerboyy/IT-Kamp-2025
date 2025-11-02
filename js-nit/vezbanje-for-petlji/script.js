@@ -30,9 +30,7 @@ let nizPutanja = ['https://www.10naj.com/wp-content/uploads/2016/08/vecera_.jpg'
 let counter = 0;
 
 promeniSliku.addEventListener('click',()=>{
-    if(counter >= 3){
-        counter = 0;
-    }
+    counter = counter % 3;
     slika.setAttribute('src',nizPutanja[counter]);
     counter++;
 
