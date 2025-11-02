@@ -11,20 +11,33 @@ input.addEventListener('input',(event)=>{
  const ubaci = document.querySelector('.ubaci');
   const obrisi = document.querySelector('.obrisi');
  const zadaci = document.querySelector('.zadaci');
- let li,checkbox;
+ let izabraniCheckovi;
+ let imaCheckova = false;
 
 
 
  ubaci.addEventListener('click',()=>{
-    if(toDoInput.value === null) alert('Unesi zadatak')
-    li = document.createElement('li');
+    if(toDoInput.value.trim() === ''){
+        alert('Unesi zadatak')
+        return;
+    }  
+    let li = document.createElement('li');
     li.textContent = toDoInput.value;
-    checkbox = document.createElement('input');
+    let checkbox = document.createElement('input');
     checkbox.setAttribute('type','checkbox');
+    checkbox.addEventListener('change', (event) => {
+        if (event.target.checked) {
+            li.classList.toggle('done'); 
+        } else {
+            li.classList.toggle('done'); 
+        }
+    });
     li.appendChild(checkbox);
     zadaci.appendChild(li);
-    toDoInput.value = ''; 
+    toDoInput.value = '';
+
  });
+
 
 
 obrisi.addEventListener('click', () => {
@@ -35,16 +48,21 @@ obrisi.addEventListener('click', () => {
         obrisano = 0;
         return;
     }
+    imaCheckova = true;
+
+    izabraniCheckovi = document.querySelectorAll('.zadaci li input');
 
     let obrisano = 0;
-
+    
     for (let i = 0; i < elementiListe.length; i++) {
         const li = elementiListe[i];
         const checkbox = li.querySelector('input[type="checkbox"]');
 
         if (checkbox.checked) {
+            checkbox.classList.add('done');
             li.remove();
             obrisano++;
+           
         }
     }
 
@@ -53,6 +71,24 @@ obrisi.addEventListener('click', () => {
     } else {
         console.log(`${obrisano} zadatak(a) obrisano`);
     }
+
+  
+  
 });
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
 
 
