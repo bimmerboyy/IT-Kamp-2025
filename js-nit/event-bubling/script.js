@@ -48,3 +48,11 @@ input.addEventListener('input',()=>{
     zadaci.appendChild(li);
     toDoInput.value = ''; 
  });
+
+ toDoInput.addEventListener('change',()=>{
+    if(toDoInput.value === null) alert('Unesi zadatak')
+    let li = document.createElement('li');
+    li.textContent = toDoInput.value;
+    zadaci.appendChild(li);
+    toDoInput.value = ''; 
+ });
