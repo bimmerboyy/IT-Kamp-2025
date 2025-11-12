@@ -82,3 +82,29 @@ proveri.addEventListener('click',()=>{
 
     console.log(filteredStudents);
 });
+
+
+const addForm = document.querySelector('#addForm');
+const newName = document.querySelector('#newName');
+const newCity = document.querySelector('#newCity');
+const newGrade = document.querySelector('#newGrade');
+
+let currentStudents = [];
+
+
+addForm.addEventListener('submit',e =>{
+    e.preventDefault();
+
+    const student = {
+        name: newName.value,
+        city: newCity.value,
+        grade: newGrade.value,
+    }
+
+    students.push(student);
+    currentStudents = [...students];
+    renderList(currentStudents);
+
+    addForm.reset();
+    
+});
