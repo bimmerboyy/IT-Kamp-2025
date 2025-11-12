@@ -17,8 +17,6 @@ const gradeFilter = document.getElementById('gradeFilter');
 
 gradeFilter.addEventListener('change',(event)=>{
     console.log(event.target.value);
-
-     
 })
 
 console.log(typeof(students[0].grade));
