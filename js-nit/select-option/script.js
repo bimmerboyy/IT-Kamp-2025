@@ -33,8 +33,19 @@ function renderList(list){
         const div = document.createElement('div');
         div.className = 'student';
 
+        let izbrisi = document.createElement('button');
+        izbrisi.textContent = 'Izbrisi';
+
+        izbrisi.addEventListener('click', ()=>{
+            const index = students.indexOf(s);
+            students.splice(index,1);
+            currentStudents = [...students];
+            applyFilters();
+        });
+
         const info = document.createElement('span');
         info.textContent = `${s.name} - ${s.city} - ${s.grade}`;
+        info.appendChild(izbrisi);
 
         div.appendChild(info);
         container.appendChild(div);
@@ -106,5 +117,4 @@ addForm.addEventListener('submit',e =>{
     renderList(currentStudents);
 
     addForm.reset();
-    
 });
