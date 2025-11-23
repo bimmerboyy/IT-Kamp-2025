@@ -1,62 +1,75 @@
-function a(){
-    console.log('a start');
+// function a(){
+//     console.log('a start');
 
-    b();
+//     b();
 
-    console.log('a end');
-}
+//     console.log('a end');
+// }
 
-function b(){
-    console.log('b log');
-}
-
-
-a();
+// function b(){
+//     console.log('b log');
+// }
 
 
-// Call stack:
-// push a -> inside a: push b -> execute b -> pop b -> continue a -> pop a
+// a();
 
 
-console.log('start');
-setTimeout(() => console.log('timeout 1000'),1000);
-setTimeout(() => console.log('timout 0'),0);
-console.log('end');
+// // Call stack:
+// // push a -> inside a: push b -> execute b -> pop b -> continue a -> pop a
 
-//Callback Hell
 
-setTimeout(() =>{
-    console.log('Prvi');
-    setTimeout(()=>{
-        console.log('Drugi');
-         setTimeout(()=>{
-        console.log('Treci');
-        },5000)
-    },5000)
+// console.log('start');
+// setTimeout(() => console.log('timeout 1000'),1000);
+// setTimeout(() => console.log('timout 0'),0);
+// console.log('end');
+
+// //Callback Hell
+
+// setTimeout(() =>{
+//     console.log('Prvi');
+//     setTimeout(()=>{
+//         console.log('Drugi');
+//          setTimeout(()=>{
+//         console.log('Treci');
+//         },5000)
+//     },5000)
    
-},5000)
+// },5000)
 
-// funkcija resolve se izvrsava kada je nesto uspesno
-// funkcija reject se izvrsava kada je nesto neuspesno
+// // funkcija resolve se izvrsava kada je nesto uspesno
+// // funkcija reject se izvrsava kada je nesto neuspesno
 
-// pending
-// fulfilled
-// rejected
+// // pending
+// // fulfilled
+// // rejected
 
-const p = new Promise((resolve,reject) => {
-    const success = false; //promeni na false da vidis reject
+// const p = new Promise((resolve,reject) => {
+//     const success = true; //promeni na false da vidis reject
 
-    setTimeout(()=>{
-       if(success){
-        resolve('Uspeh'); //-> fullfiled
-       }
-       else{
-        reject(''); //-> rejected
-       } 
-    },2500)
-}).catch(error =>{
-    console.log('Greska',error);
-});
+//     setTimeout(()=>{
+//        if(success){
+//         resolve('Uspeh'); //-> fullfiled
+//        }
+//        else{
+//         reject(''); //-> rejected
+//        } 
+//     },2500)
+// }).catch(error =>{
+//     console.log('Greska',error);
+// }).then(result =>{
+//     console.log('Uspeh');
+// });
+
+
+console.log('A');
+
+setTimeout(() => console.log('B'), 0);
+
+Promise.resolve().then(() => console.log('C'));
+
+console.log('D');
+
+
 
 
 
