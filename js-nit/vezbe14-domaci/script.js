@@ -365,3 +365,79 @@ Prikazati post sa najviše komentara
 
 //Prebrojati koliko komentara ima svaki post
 //isti princip spojimo postove i komentare i onda samo prebrojimo koliko ima
+
+
+/*
+
+Zadatak 4.1 - Kombinovanje Više API Poziva
+Napraviti aplikaciju koja će:
+
+Preuzeti sve korisnike
+Za svakog korisnika, preuzeti sve njegove postove
+Za svaki post, preuzeti sve komentare
+Kreiraj strukturu: { user: {...}, posts: [...], comments: [...] }
+(Hint: Koristiti Promise.all() ili chain-ovanje fetch poziva)
+
+*/
+
+
+Promise.all([
+    fetch(`${API_URL}/users`).then(res => res.json()),
+    fetch(`${API_URL}/posts`).then(res => res.json()),
+    fetch(`${API_URL}/comments`).then(res => res.json())
+])
+.then(([users, posts, comments]) => {
+    const data = {
+        users,
+        posts,
+        comments
+    };
+
+    console.log(data);
+});
+
+
+/*
+
+Implementacija:
+
+Preuzeti sve korisnike i postove
+Za svakog korisnika prikazati karticu sa:
+Ime korisnika
+Email
+Broj postova
+Lista prvih 3 njihova posta
+Dodati CSS stilove za kartice
+
+
+*/
+
+
+ fetch(`${API_URL}/users`)
+    .then(response => response.json())
+    .then(userdata => {
+       fetch(`${API_URL}/posts`).then(response => response.json()).then(postData => {
+            const userPost = userdata.map(user => {
+                return {
+                    username:user.username,
+                    email:user.email,
+                    posts: postData.filter(post => post.userId === user.id).length
+                }
+            })
+            const usersContainer = document.querySelector('#usersContainer');
+            userPost.forEach(user => {
+            const card = document.createElement('div');
+            card.className = 'card';
+                card.innerHTML = `
+        <p class="name">Ime:${user.username}</p>
+        <p class="email">Email:${user.email}</p>
+        <p class="broj-postova">Broj postova:${user.posts}</p>
+            `;
+            usersContainer.appendChild(card);
+            })
+            
+        
+        
+        })
+    })
+    .catch(err => console.log(err))
