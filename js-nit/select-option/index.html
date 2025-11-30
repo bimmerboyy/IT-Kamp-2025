@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js" defer></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="controls">
+        <input type="search" id="search" placeholder="Pretrazi po imenu">
+        <select name="" id="cityFilter">
+            <option value="">Svi gradovi</option>
+            <option value="Novi Pazar">Novi Pazar</option>
+            <option value="Beograd">Beograd</option>
+            <option value="Nis">Nis</option>
+        </select>
+
+        <select name="" id="gradeFilter">
+            <option value="">Bez ocene</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+
+        <button class="proveri">Proveri</button>
+
+
+    </div>
+
+    <div id="studentContainer"></div>
+
+    <form action="" id="addForm">
+        <input id="newName" type="text" placeholder="Ime" required />
+        <input id="newCity" type="text" placeholder="Grad" required/>
+        <input 
+        type="text"
+        id="newGrade"
+        min="5"
+        max="10"
+        step="1"
+        placeholder="Ocena"
+        required
+        />
+        <button class="add" type="submit">Dodaj Studenta</button>
+    </form>
+    
+</body>
+</html>
