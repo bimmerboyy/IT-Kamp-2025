@@ -428,11 +428,7 @@ Dodati CSS stilove za kartice
             userPost.forEach(user => {
             const card = document.createElement('div');
             card.className = 'card';
-                card.innerHTML = `
-        <p class="name">Ime:${user.username}</p>
-        <p class="email">Email:${user.email}</p>
-        <p class="broj-postova">Broj postova:${user.posts}</p>
-            `;
+            renderCards(card,user);
             usersContainer.appendChild(card);
             })
             
@@ -441,3 +437,100 @@ Dodati CSS stilove za kartice
         })
     })
     .catch(err => console.log(err))
+
+const searchInput = document.querySelector('#searchInput');
+const sortBy = document.querySelector('#sortBy');
+const search = document.querySelector('.search');
+const searchByName = document.querySelector('.SortByName');
+const searchByEmail = document.querySelector('.SortByEmail');
+
+let input,nameOrEmail,byNameOrEmail;
+
+
+const renderCards = (card,user) =>{
+               card.innerHTML = `
+        <p class="name">Ime:${user.username}</p>
+        <p class="email">Email:${user.email}</p>
+        <p class="broj-postova">Broj postova:${user.posts}</p>
+            `;
+}
+
+sortBy.addEventListener('change',event => {
+    nameOrEmail= event.target.value;
+    applyFilters();
+})
+
+search.addEventListener('click',event =>{
+    input = searchInput.value;
+    applyFilters();
+})
+searchByName.addEventListener('click',event =>{
+    byNameOrEmail  = event.target.innerHTML;
+    console.log(byNameOrEmail);
+    applyFilters();
+})
+
+
+searchByEmail.addEventListener('click',event =>{
+    byNameOrEmail = event.target.innerHTML;
+    console.log(byNameOrEmail);
+    applyFilters();
+
+})
+
+const applyFilters = () => {
+    fetch(`${API_URL}/users`)
+        .then(res => res.json())
+        .then(users => {
+            return fetch(`${API_URL}/posts`).then(res => res.json()).then(posts => {
+                
+                // 1. PRVO filtriramo
+                let filtered = users;
+
+                if (input && input.trim() !== "" && nameOrEmail === "name") {
+                    filtered = filtered.filter(u =>
+                        u.username.toLowerCase().includes(input.toLowerCase())
+                    );
+                }
+                else if(nameOrEmail === "email" && input && input.trim() !== ""){
+                      filtered = filtered.filter(u =>
+                        u.email.toLowerCase().includes(input.toLowerCase())
+                    );
+                }
+                else{
+                    console.log('Niste uneli nista u input');
+                }
+                
+                if(byNameOrEmail === 'SortByName'){
+                    filtered = filtered.sort((a, b) => a.username.localeCompare(b.username));
+                }
+                else{
+                    filtered = filtered.sort((a, b) => a.email.localeCompare(b.email));
+                }
+                    
+                
+
+                // 3. Dodaj post count
+                const finalUsers = filtered.map(u => ({
+                    username: u.username,
+                    email: u.email,
+                    posts: posts.filter(p => p.userId === u.id).length
+                }));
+
+                // 4. RENDER
+                const usersContainer = document.querySelector('#usersContainer');
+                usersContainer.innerHTML = ""; // brišemo stare kartice
+
+                finalUsers.forEach(user => {
+                    const card = document.createElement('div');
+                    card.className = 'card';
+                    renderCards(card, user);
+                    usersContainer.appendChild(card);
+                });
+
+            });
+        })
+        .catch(err => console.log(err));
+};
+
+
