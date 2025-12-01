@@ -283,3 +283,90 @@ const renderPosts = (post,allComments) =>{
 }
 
 displayPosts();
+
+
+/*
+
+4. Napredni Zadaci
+Zadatak 4.1 - Pretraga sa Filtriranjem
+Napraviti async funkciju searchUsers(name) koja će:
+
+Preuzeti sve korisnike
+Filtirati korisnike čije ime sadrži unet tekst (case-insensitive)
+Prikazati filtrirane rezultate na stranici
+
+*/
+
+async function searchUsers(name) {
+    try {
+        // 1. Uzimamo sve korisnike
+        const res = await fetch(`${API_URL}/users`);
+        const users = await res.json();
+
+        // 2. Filtriramo (case insensitive)
+        const filtered = users.filter(u =>
+            u.username.toLowerCase().includes(name.toLowerCase())
+        );
+
+        // 3. Renderujemo kartice
+        renderUserList(filtered);
+
+    } catch (error) {
+        console.error("Greška:", error);
+    }
+}
+
+
+function renderUserList(users) {
+    const container = document.querySelector('#usersContainer');
+    container.innerHTML = "";
+
+    users.forEach(user => {
+        const card = document.createElement('div');
+        card.className = "card";
+
+        card.innerHTML = `
+            <p>Ime: ${user.username}</p>
+            <p>Email: ${user.email}</p>
+        `;
+
+        container.appendChild(card);
+    });
+}
+
+document.querySelector("#searchInput").addEventListener("input", e => {
+    
+});
+
+
+
+document.querySelector(".search").addEventListener("click", () => {
+    const input = document.querySelector("#searchInput").value;
+    searchUsers(input);
+});
+
+const loading = document.querySelector('#loading');
+const content = document.querySelector('#content');
+
+async function loadDataWithIndicator() {
+    try{
+        loading.style.display = "block";
+        const response = await fetch(`${API_URL}/users`);
+        const data = await response.json();
+        data.forEach(d =>{
+             content.innerHTML += `
+        <p class="name">Name:${d.name}</p>
+        `;
+        })
+        if(content.innerHTML !== ""){
+            loading.style.display = "none";
+        }
+       
+    }
+    catch(error){
+        console.log('Greska:' + error);
+    }
+}
+
+loadDataWithIndicator();
+
