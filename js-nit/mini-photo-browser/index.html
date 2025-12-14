@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Photo Browser</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    h2 { margin-top: 40px; }
+    .item {
+      padding: 8px;
+      border: 1px solid #ddd;
+      margin: 6px 0;
+      cursor: pointer;
+    }
+    .item:hover { background-color: #f2f2f2; }
+    img { max-width: 150px; border-radius: 6px; margin-bottom: 10px; }
+    #usersList{list-style: none;}
+    #usersList li{margin-bottom:10px;}
+  </style>
+</head>
+<body>
+
+  <h1>Photo Browser</h1>
+
+  <!-- USERS -->
+  <section id="usersSection">
+    <h2>Users</h2>
+    <div id="usersList"></div>
+  </section>
+
+  <!-- ALBUMS -->
+  <section id="albumsSection" style="display: none">
+    <h2>Albums</h2>
+    <button id="backToUsers">⬅ Back to Users</button>
+    <div id="albumsList"></div>
+  </section>
+
+  <!-- PHOTOS -->
+  <section id="photosSection" style="display: none">
+    <h2>Photos</h2>
+    <button id="backToAlbums">⬅ Back to Albums</button>
+    <div id="photosList"></div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
