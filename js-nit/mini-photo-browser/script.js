@@ -37,9 +37,35 @@ console.log(userList);
 
 const loadUsers = () =>{
 
-    userList.innerHTML = allusers.map(user => `<li>${user.name}</li>`).join('');
+    userList.innerHTML = allusers.map(user => `<div class='df-for-li'><li>${user.name}</li></div>`).join('');
 }
-
 getUsers().then(() => {
     loadUsers();
 })
+
+
+const albumsSection = document.querySelector('#albumsSection');
+const backToUsers = document.querySelector('#backToUsers');
+const albumsList = document.querySelector('#albumsList');
+
+usersList.addEventListener('click', async e => {
+  const name = e.target.textContent;
+  const user = allusers.find(u => u.name === name);  
+  const id = user.id;
+  if (!id) return;
+
+  // Prikaži posts sekciju
+  usersSection.style.display = 'none';
+  albumsSection.style.display = 'block';
+
+  const res = await fetch(`${API_URL}/albums?userId=${id}`);
+  allAlbums = await res.json();
+
+  albumsList.innerHTML = allAlbums
+    .map(album => `<div class="item">${album.title}</div>`)
+    .join('');
+});
+
+
+
+
