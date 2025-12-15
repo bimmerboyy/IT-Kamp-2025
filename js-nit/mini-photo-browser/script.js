@@ -51,7 +51,7 @@ const albumsList = document.querySelector('#albumsList');
 usersList.addEventListener('click', async e => {
   const name = e.target.textContent;
   const user = allusers.find(u => u.name === name);  
-  const id = user.id;
+  const id = user?.id;
   if (!id) return;
 
   // Prikaži posts sekciju
@@ -59,6 +59,7 @@ usersList.addEventListener('click', async e => {
   albumsSection.style.display = 'block';
 
   const res = await fetch(`${API_URL}/albums?userId=${id}`);
+
   allAlbums = await res.json();
 
   albumsList.innerHTML = allAlbums
