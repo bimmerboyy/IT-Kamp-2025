@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="script.js" defer></script>
+
+    <style>
+        form{
+            display: flex;
+            flex-direction:column;
+            width:300px;
+            padding:30px;
+        }
+        input{
+            margin-bottom:10px;
+            margin-top:10px;
+        }
+        button{
+            width:150px;
+            margin-left:80px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Kreiranje novog posta</h1>
+
+    <form action="" id="postForm">
+        <input type="text" id="title" placeholder="Naslov posta" required>
+        <textarea name="" id="body" placeholder="Sadrzaj posta" rows="4"></textarea>
+        <input type="number" id="userid" placeholder="User ID" value="1">
+        <button type="submit">Posalji POST zahtev</button>
+    </form>
+
+    <div id="rezultat"></div>
+
+
+    <h1>Kreiranje novog todo-a</h1>
+
+    <form action="" id="todoForm">
+        <input type="text" id="titleZaTodo" placeholder="Naslov todoa" required>
+            <label for="isCompleted">
+                 <input type="checkbox" id="isCompleted" >
+                 Is completed?
+            </label><br>
+       
+        <input type="number" id="useridZaTodo" placeholder="User ID" value="1">
+        <button type="submit">Posalji POST zahtev</button>
+    </form>
+
+    <div id="rezultatZaToDo"></div>
+</body>
+</html>

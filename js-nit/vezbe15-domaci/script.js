@@ -370,3 +370,111 @@ async function loadDataWithIndicator() {
 
 loadDataWithIndicator();
 
+
+//Pregled za svakog korisnika
+
+
+async function showAllUsers() {
+    try{
+        const usersContainer = document.querySelector('#usersContainer');
+        const response = await fetch(`${API_URL}/users`);
+        const data = await response.json();
+        data.forEach(user => {
+          let card = document.createElement('div');
+          card.className = 'card';
+          card.innerHTML = `<div class="user-card">
+  <h2>${user.name}</h2>
+  <p><strong>Username:</strong> ${user.username}</p>
+  <p><strong>Email:</strong> ${user.email}</p>
+  <p><strong>Phone:</strong> ${user.phone}</p>
+  <p><strong>Website:</strong> ${user.website}</p>
+  <p><strong>Kompanija:</strong> ${user.company.name}</p>
+  <p><strong>Grad:</strong> ${user.address.city}</p>
+  <p><strong>Adresa:</strong> ${user.address.street}, ${user.address.suite}</p>
+  <p><strong>Broj Postova:</strong> <span id="postCount-${user.id}">0</span></p>
+  <button onclick="toggleUserPosts(${user.id})">Prikaži Postove</button>
+</div>`;
+          usersContainer.appendChild(card);
+        })
+        }
+    catch(error){
+        console.log('Greska:' + error);
+    }
+}
+
+
+
+
+showAllUsers();
+
+
+
+async function showPosts(id) {
+   try{
+        const postsContainer = document.querySelector('#postsContainer');
+        const responsePosts = await fetch(`${API_URL}/posts`);
+        const posts = await responsePosts.json();
+
+
+        const responseComments = await fetch(`${API_URL}/comments`);
+        const comments = await responseComments.json();
+        let postComments;
+
+        posts.forEach(post => {
+        postComments = comments.filter(comment => comment.postId === post.id);
+      })
+
+        posts.forEach(post => {
+
+          let card = document.createElement('div');
+          card.className = 'card';
+          card.innerHTML = `<h2>${post.title}</h2>
+          <p><strong>Body:</strong> ${post.body.slice(0,100)}</p>
+          <p><strong>Broj komentara:</strong>${postComments.length}</p>
+          `;
+
+          postsContainer.appendChild(card);
+        })
+        }
+
+    catch(error){
+        console.log('Greska:' + error);
+    }
+
+  }
+
+function toggleUserPosts(userId){
+  showPosts(userId);
+  console.log('klik');
+}
+  async function showPosts2() {
+   try{
+        const responsePosts = await fetch(`${API_URL}/posts`);
+        const posts = await responsePosts.json();
+
+
+         const responseComments = await fetch(`${API_URL}/comments`);
+        const comments = await responseComments.json();
+
+      
+
+        console.log(filtredPosts);
+        posts.forEach(post =>{
+          // console.log(post);
+        })
+
+        // comments.forEach(comment => {
+        //   console.log(comment);
+        //   console.log('raddiiii');
+        // })
+        }
+    catch(error){
+        console.log('Greska:' + error);
+    }
+
+  }
+
+showPosts2();
+
+
+// showPosts();
