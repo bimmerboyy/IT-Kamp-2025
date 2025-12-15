@@ -37,7 +37,8 @@ form.addEventListener('submit',async function (event){
 
 
 urls = [
-    'https://jsonplaceholder.typicode.com/todos'
+    'https://jsonplaceholder.typicode.com/todos',
+    'https://jsonplaceholder.typicode.com/users'
 ]
 
 async function parallelFetch() {
