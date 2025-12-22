@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="column">
+            <h2>PUT Metoda</h2>
+            <form action="" id="putForm">
+                <h3>Izmeni post (kompletna zamena)</h3>
+                <input type="number" id="putPostId" placeholder="ID posta" value="1" required>
+                <button type="button" class="btn-load" id="loadPutBtn">Ucitaj postojece podatke</button>
+                <input type="text" id="putTitle" placeholder="Novi naslov" rows="3" required>
+                <textarea name="putBody" placeholder="Novi sadrzaj" rows="3" id=""></textarea>
+                <input type="number" id="putUserId" placeholder="User ID" value="1" required>
+                <button type="submit" class="btn-put">Posalji PUT zahtev</button>
+            </form>
+        </div>
+
+        <div class="column">
+            <h2>PATCH Metoda</h2>
+            <form action="" id="patchForm">
+                <h3>Izmeni post (delimicna zamena)</h3>
+                <input type="number" id="patchPostId" placeholder="ID posta" value="1" required>
+                <button type="button" class="btn-load" id="loadPatchBtn">Ucitaj postojece podatke</button>
+                <input type="text" id="patchTitle" placeholder="Novi naslov" rows="3" required>
+                <textarea name="patchBody" placeholder="Novi sadrzaj (opciono)" rows="3" id=""></textarea>
+                <button type="submit" class="btn-put">Posalji PATCH zahtev</button>
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>

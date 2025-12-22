@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="script.js" defer></script>
+</head>
+<body>
+     <h1>Kreiranje novog komentara</h1>
+
+     <!-- city
+: 
+"Gwenborough"
+geo
+: 
+{lat: '-37.3159', lng: '81.1496'}
+street
+: 
+"Kulas Light"
+suite
+: 
+"Apt. 556"
+zipcode
+: 
+"92998-3874" -->
+
+    <form action="" id="userForm">
+        <input type="text" id="name" placeholder="Ime" required><br>
+        <input type="text" id="username" placeholder="Username" required><br>
+        <input type="email" id="email" placeholder="Email" required>
+        <p>Adresa:</p>
+        <input type="text" id="city" placeholder="City" required><br>
+        <input type="text" id="street" placeholder="Street" required><br>
+        <input type="number" id="zipCode" placeholder="Zipcode" required><br><br>
+        
+        <!-- <input type="text" id="company" placeholder="Kompanija" required> -->
+        <button type="submit">Posalji POST zahtev</button>
+    </form>
+
+    <div id="rezultat"></div>
+</body>
+</html>
