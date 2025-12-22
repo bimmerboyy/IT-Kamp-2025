@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js" defer></script>
     <title>Document</title>
 </head>
 <body>
@@ -14,7 +15,7 @@
                 <input type="number" id="putPostId" placeholder="ID posta" value="1" required>
                 <button type="button" class="btn-load" id="loadPutBtn">Ucitaj postojece podatke</button>
                 <input type="text" id="putTitle" placeholder="Novi naslov" rows="3" required>
-                <textarea name="putBody" placeholder="Novi sadrzaj" rows="3" id=""></textarea>
+                <textarea name="putBody" id="putBody" placeholder="Novi sadrzaj" rows="3" id=""></textarea>
                 <input type="number" id="putUserId" placeholder="User ID" value="1" required>
                 <button type="submit" class="btn-put">Posalji PUT zahtev</button>
             </form>
@@ -27,7 +28,7 @@
                 <input type="number" id="patchPostId" placeholder="ID posta" value="1" required>
                 <button type="button" class="btn-load" id="loadPatchBtn">Ucitaj postojece podatke</button>
                 <input type="text" id="patchTitle" placeholder="Novi naslov" rows="3" required>
-                <textarea name="patchBody" placeholder="Novi sadrzaj (opciono)" rows="3" id=""></textarea>
+                <textarea name="patchBody" id="patchBody" placeholder="Novi sadrzaj (opciono)" rows="3" id=""></textarea>
                 <button type="submit" class="btn-put">Posalji PATCH zahtev</button>
             </form>
         </div>
