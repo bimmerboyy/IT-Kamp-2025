@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PUT i PATCH Metode - Primer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+    }
+    .container {
+      display: flex;
+      gap: 30px;
+    }
+    .column {
+      flex: 1;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+    input, textarea {
+      padding: 10px;
+      font-size: 16px;
+    }
+    .btn-put {
+      padding: 12px;
+      background: #fd7e14;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .btn-put:hover {
+      background: #e96b02;
+    }
+    .btn-patch {
+      padding: 12px;
+      background: #6f42c1;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .btn-patch:hover {
+      background: #5a32a3;
+    }
+    .btn-load {
+      padding: 8px;
+      background: #17a2b8;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .btn-load:hover {
+      background: #138496;
+    }
+    #rezultat {
+      margin-top: 20px;
+      padding: 15px;
+      background: #f0f0f0;
+      border-radius: 5px;
+      white-space: pre-wrap;
+    }
+    h3 {
+      margin-top: 0;
+    }
+    .info {
+      background: #e7f3ff;
+      padding: 15px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+  </style>
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+    <h1>Ažuriranje podataka (PUT i PATCH)</h1>
+
+  <div class="info">
+    <strong>Razlika između PUT i PATCH:</strong><br>
+    <strong>PUT</strong> - zamenjuje CELU resurs (moramo poslati sve podatke)<br>
+    <strong>PATCH</strong> - menja samo određena polja (šaljemo samo ono što menjamo)
+  </div>
+
+  <div class="container">
+    <div class="column">
+      <h2>PUT Metoda</h2>
+      <form id="putForm">
+        <h3>Izmeni usera (kompletna zamena)</h3>
+        <input type="number" id="userId" placeholder="ID user" value="1" required>
+        <button type="button" class="btn-load" id="loadUserBtn">Učitaj postojeće podatke</button>
+        <input type="text" id="name" placeholder="Ime" required>
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <label for="address">Adresa:
+            <br>
+            <br>
+        <input type="text" id="city" placeholder="Grad" required>
+        <input type="text" id="street" placeholder="Ulica" required>
+        <input type="text" id="suite" placeholder="Suite" required>
+        <input type="number" id="zipcode" placeholder="Zip code" required><br><br>
+        <label for="geo">Geo:
+            <input type="number" id="lat" placeholder="Lat" required style="width:50px;">
+            <input type="number" id="lng" placeholder="Lng" required style="width:50px;">
+        </label>
+        </label>
+        <label for="company">Company
+            <br><br>
+            <input type="text" id="bs" placeholder="bs" required>
+            <input type="text" id="catchPhrase" placeholder="Catch Phrase" required>
+            <input type="text" id="companyName" placeholder="Ime Kompanije" required>
+
+
+        </label>
+       
+        <button type="submit" class="btn-put">Pošalji PUT zahtev</button>
+      </form>
+    </div>
+
+    <!-- <div class="column">
+      <h2>PATCH Metoda</h2>
+      <form id="patchForm">
+        <h3>Izmeni post (delimična izmena)</h3>
+        <input type="number" id="patchPostId" placeholder="ID posta" value="1" required>
+        <button type="button" class="btn-load" id="loadPatchBtn">Učitaj postojeće podatke</button>
+        <input type="text" id="patchTitle" placeholder="Novi naslov (opciono)">
+        <textarea id="patchBody" placeholder="Novi sadržaj (opciono)" rows="3"></textarea>
+        <button type="submit" class="btn-patch">Pošalji PATCH zahtev</button>
+      </form>
+    </div>
+  </div> -->
+
+  <div id="rezultat"></div>
+    
+</body>
+</html>

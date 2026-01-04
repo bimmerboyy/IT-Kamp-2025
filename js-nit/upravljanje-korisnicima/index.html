@@ -16,7 +16,12 @@
         <th>Akcija</th>
     </tr>
     </table>
-
+        <form id="putForm" style="visibility: hidden;">
+        <h3>Izmeni post (kompletna zamena)</h3>
+        <input type="text" id="putTitle" placeholder="Novi naslov" required>
+        <textarea id="putBody" placeholder="Novi sadržaj" rows="3" required></textarea>
+        <button type="submit" class="btn-put">Pošalji PUT zahtev</button>
+      </form>
     <div class="posts"></div>
 </body>
 </html>
