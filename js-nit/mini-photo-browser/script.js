@@ -29,6 +29,7 @@ async function getUsers() {
 //     console.log("Van funkcije, ali posle fetch-a:", allusers);
 // });
 
+
 const usersSection = document.querySelector('#usersSection');
 const userList = document.querySelector('#usersList');
 
