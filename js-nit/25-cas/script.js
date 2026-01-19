@@ -76,4 +76,53 @@ class Car{
 
 const car = new Car('BMW','E30',1987,true);
 
-console.log(car.start()); 
+console.log(car.start());
+
+
+class Student{
+    constructor(name){
+        this.name = name,
+        this.grades = [] 
+    }
+    addGrade(grade){
+        this.grades.push(grade);
+    }
+    getAvarage(){
+         let zbirOcena = 0;
+        for(let i = 0;i < this.grades.length;i++){
+            zbirOcena += this.grades[i];               
+        }
+
+        let prosek = zbirOcena / this.grades.length;
+        console.log(prosek);
+    }
+    isPassing(){
+        let passed;
+        for(let i = 0;i < this.grades.length;i++){
+            if(this.grades[i] > 1){
+                passed = true;
+            }else{
+                passed = false;
+            }               
+        
+        }
+        if(passed){
+            console.log('Prolazi');
+        }
+        else{
+            console.log('Ne prolazi');
+        }
+    }
+}
+
+const student = new Student('Tarik');
+student.addGrade(2);
+student.addGrade(3);
+student.addGrade(4);
+student.addGrade(5);
+
+console.log(student.grades);
+
+student.getAvarage();
+
+student.isPassing();
